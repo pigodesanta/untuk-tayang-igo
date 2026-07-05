@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Untuk Dila Tayang ❤️</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(135deg,#ff9a9e,#fad0c4);overflow:hidden;color:#fff}
+#hearts span{position:fixed;top:-20px;animation:fall linear infinite;font-size:20px}
+@keyframes fall{to{transform:translateY(110vh)}}
+.main{position:relative;z-index:2;display:flex;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px}
+.card{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);padding:25px;border-radius:20px;max-width:600px}
+button{padding:12px 20px;border:0;border-radius:10px;margin:8px;cursor:pointer}
+#no{position:relative}
+</style></head><body>
+<div id="hearts"></div>
+<div class="main"><div class="card">
+<h1>Halo Tayang ❤️</h1><p id="t"></p>
+<p><b>Kita sudah bersama:</b> <span id="timer">0 hari 0 jam 0 menit 0 detik</span></p>
+<p><small>Sejak 15 April 2026</small></p>
+<img id="img" src="foto-tayang.jpg" alt="Foto Tayang" style="width:100%;border-radius:12px">
+<br><button onclick="next()">Baca Surat 💌</button>
+<div id="q" style="display:none"><h2>Amu Tetap Mau Sama Igo Kan? ❤️</h2>
+<button onclick="yes()">Iya ❤️</button><button id="no">Tidak 😝</button></div>
+</div></div>
+<audio autoplay loop controls style="position:fixed;bottom:10px;left:10px;z-index:3"><source src="aku_milikmu.mp3" type="audio/mpeg">Audio tidak didukung oleh browser Anda.</audio>
+<script>
+const msgs=["Terima kasih sudah hadir di hidup igo.","Jangan marah - marah lagi ya sayangku cintaku.","Semoga kita sama - sama terus ya cintaku.","I Love You Tayang ❤️"];
+let i=0;function type(s){let j=0;t.innerHTML="";let x=setInterval(()=>{t.innerHTML+=s[j++]||"";if(j>s.length)clearInterval(x)},40)}
+function next(){if(i<msgs.length){type(msgs[i++])}else q.style.display="block";}
+
+const timer = document.getElementById("timer");
+const q = document.getElementById("q");
+const no = document.getElementById("no");
+const t = document.getElementById("t");
+const hearts = document.getElementById("hearts");
+const d = new Date("2026-04-15T00:00:00");
+
+type(msgs[0]);i=1;
+function updateTimer(){let x=Date.now()-d;let days=Math.floor(x/86400000);let h=Math.floor(x/3600000)%24;let m=Math.floor(x/60000)%60;let s=Math.floor(x/1000)%60;timer.textContent=`${days} hari ${h} jam ${m} menit ${s} detik`;}
+updateTimer();
+setInterval(updateTimer,1000);
+no.onmouseover=no.ontouchstart=()=>{no.style.position="fixed";no.style.left=Math.random()*(innerWidth-100)+"px";no.style.top=Math.random()*(innerHeight-50)+"px";}
+function yes(){alert("Yeay! ❤️ Semoga kita selalu bersama! 🎆");document.body.style.background="linear-gradient(135deg,#ff5f6d,#ffc371)";}
+for(let k=0;k<40;k++){let s=document.createElement("span");s.textContent="❤️";s.style.left=Math.random()*100+"vw";s.style.animationDuration=5+Math.random()*8+"s";s.style.animationDelay=Math.random()*5+"s";hearts.appendChild(s);}
+</script></body></html>
